@@ -15,22 +15,25 @@ namespace plawgoGitHub.Web.Controllers
     {
         private Lazy<IGigLogic> _logic;
         // GET: Products
-        //public GigsController(Lazy<IGigLogic> logic)
-        //{
-        //    _logic = logic;
-
-        //}
-
-
-        public GigsController()
+        public GigsController(Lazy<IGigLogic> logic)
         {
-             DataContext ole = new DataContext();
-            Lazy<IUnitOfWork> ole2 = new Lazy<IUnitOfWork>(() => new UnitOfWork(ole));
-            //  Lazy<IGigRepository> ole2 = new Lazy<IGigRepository>(() => new GigRepository(ole));
-            //Lazy<IGigRepository> ole2 =new GigRepository(ole);
+            //  _logic = new Lazy<IGigLogic>(() => new GigLogic(unitOfWork));
+            _logic = logic;
 
-            _logic = new Lazy<IGigLogic>(() => new GigLogic(ole2));
+
+
         }
+
+
+        //public GigsController()
+        //{
+        //     DataContext ole = new DataContext();
+        //    Lazy<IUnitOfWork> ole2 = new Lazy<IUnitOfWork>(() => new UnitOfWork(ole));
+        //    //  Lazy<IGigRepository> ole2 = new Lazy<IGigRepository>(() => new GigRepository(ole));
+        //    //Lazy<IGigRepository> ole2 =new GigRepository(ole);
+
+        //    _logic = new Lazy<IGigLogic>(() => new GigLogic(ole2));
+        //}
         protected IGigLogic Logic
         {
             get

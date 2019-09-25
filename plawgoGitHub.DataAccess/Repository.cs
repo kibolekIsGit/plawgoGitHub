@@ -19,6 +19,7 @@ namespace plawgoGitHub.DataAccess
 
         public void Add(T model)
         {
+            
             Db.Set<T>().Add(model);
         }
 

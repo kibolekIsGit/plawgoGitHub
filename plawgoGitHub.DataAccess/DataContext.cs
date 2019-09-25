@@ -16,7 +16,7 @@ namespace plawgoGitHub.DataAccess
         {
 
         }
-
+       
         public DbSet<Gig> Gigs { get; set; }
 
 
@@ -83,6 +83,9 @@ namespace plawgoGitHub.DataAccess
             modelBuilder.Entity<Gig>()
                 .Property(g => g.DateTime)
                 .IsRequired();
+
+            
+                
 
 
         }

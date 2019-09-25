@@ -21,6 +21,7 @@ namespace plawgoGitHub.DataAccess
         public UnitOfWork(DataContext context)
         {
             _context = context;
+            _context.Database.BeginTransaction();
             Gigs = new GigRepository(_context);
            
 
@@ -30,6 +31,7 @@ namespace plawgoGitHub.DataAccess
         {
 
             _context.SaveChanges();
+            _context.Database.CurrentTransaction.Commit();
         }
 
 
